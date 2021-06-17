@@ -1,0 +1,89 @@
+.centrado-usuario{
+    height: 90vh;
+    width: 80%;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    flex-direction:column;
+    
+    >h1{
+        margin-bottom:2rem;
+    }
+
+    .contenedor-administracion{
+        width: 100%;
+        background-color: $color1;
+        height: 80%;
+        display:grid;
+        grid-template-columns: 1fr 4fr;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        overflow: hidden;
+
+
+        .menu{
+            background-color:$color2;
+            display: grid;
+            grid-template-rows: 70px calc(100% - 70px);
+
+            .titulo{
+                background-color:$color3;
+                > h4{
+                    line-height: 70px;
+                    text-align: center;
+                    color:white;
+                }
+            }
+
+            .opciones{
+                .lista{
+                    list-style:none;
+                    padding-left:0;
+                    &__item{
+                        padding:5px .5rem;
+                        > a{
+                            color:black;
+                            text-decoration:none;
+                            font-size: 22px;
+                        }
+
+                        &:hover{
+                            background-color:white;
+                        }
+                    }
+
+                }
+           }
+
+        }
+
+        .administracion{
+            display: grid;
+            grid-template-rows: 70px calc(100% - 70px);
+
+            .head{
+                background-color:$color3;
+                display: grid;
+                grid-template-columns: calc(100% - 150px) 150px;
+
+                &__title{
+                    > h4{
+                        margin-left:2rem;
+                        line-height: 70px;
+                        color: white;
+                    }
+                }
+
+                &__button{
+                    display: flex;
+                    align-items:center;
+                    
+                }
+            }
+
+            .tabla{
+            }
+        }
+    }
+}

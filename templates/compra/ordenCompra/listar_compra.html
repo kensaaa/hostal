@@ -1,0 +1,46 @@
+{% extends 'baseTabla.html' %}
+
+{% block administracion %}
+    Ordenes de Compra
+{% endblock administracion %}
+
+{% block button %}
+{% url 'compra:crear_compra' %}
+{% endblock button %}
+
+{% block tabla %}
+<table class="table table-striped table-hover table-responsive">
+    <tr>
+        <th>numero</th>
+        <th>fecha inicio</th>
+        <th>fecha termino</th>
+        <th>estado orden</th>
+        <th>monto total</th>
+        <th>cliente</th>
+        <th>opciones</th>
+    </tr>
+    {% for c in compras  %}
+
+    <tr>
+        <td>{{ c.num_compra }}</td>
+        <td>{{ c.fecha_inicio }}</td>
+        <td>{{ c.fecha_termino }}</td>
+        <td>{{ c.estado }}</td>
+        <td>{{ c.monto_total }}</td>
+        <td>{{ c.cliente }}</td>
+        <td>
+
+            {% if perms.app.change_habitacion %}
+            <a href="" class="btn btn-info btn-sm">modificar</a>
+            {% endif %}
+
+            {% if perms.app.delete_habitacion %}
+                <a href="#"  class="btn btn-danger btn-sm">eliminar</a>
+            {% endif %}
+
+        </td>
+    </tr>    
+
+    {% endfor %}
+</table>
+{% endblock tabla %}

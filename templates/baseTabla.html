@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+ <div class="centrado-usuario">
+    <h1>Bienvenid@, {{ user.username }}  !!!! .Que hoy sea un gran dia para ti</h1>
+
+    <div class="contenedor-administracion">
+        
+        <div class="menu">
+            <div class="titulo">
+                <h4>Menu</h4>
+            </div>
+             
+            <div class="opciones">
+
+            </div>
+            
+        </div>
+
+        <div class="administracion">
+            <div class="head">
+                <div class="head__title">
+                    <h4>Administracion de{% block administracion %} {% endblock administracion %}</h4> 
+                </div> 
+
+                <div class="head__button"> 
+                    <a href="{% block button %} {% endblock button %}" class="btn btn-light">Agregar</a>
+                </div>
+
+            </div>
+
+            <div class="tabla">
+                
+                {% block tabla %}
+                    
+                {% endblock tabla %}
+                
+            </div>
+            
+        </div>
+
+     </div>
+     
+ </div>   
+    
+{% endblock contenido %}

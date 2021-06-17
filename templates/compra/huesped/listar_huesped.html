@@ -1,0 +1,48 @@
+{% extends 'baseTabla.html' %}
+
+{% block administracion %}
+Huespedes
+{% endblock administracion %}
+
+{% block button %}
+{% url 'compra:crear_huesped' %}
+{% endblock button %}
+
+{% block tabla %}
+<table class="table table-striped table-hover table-responsive">
+    <tr>
+        <th>rut</th>
+        <th>nombres</th>
+        <th>correo</th>
+        <th>orden_compra</th>
+        <th>habitacion</th>
+        <th>tipo_comedor</th>
+        <th>activo</th>
+        <th>opciones</th>
+    </tr>
+    {% for h in huespedes  %}
+
+    <tr>
+        <td>{{ h.rut }}</td>
+        <td>{{ h.nombres }}</td>
+        <td>{{ h.correo }}</td>
+        <td>{{ h.orden_compra }}</td>
+        <td>{{ h.habitacion }}</td>
+        <td>{{ h.tipo_comedor }}</td>
+        <td>{{ h.activo }}</td>
+        <td>
+
+            {% if perms.app.change_habitacion %}
+            <a href="{% url 'compra:actualizar_huesped' h.id_huesped %}" class="btn btn-info btn-sm">modificar</a>
+            {% endif %}
+
+            {% if perms.app.delete_habitacion %}
+                <a href="#"  class="btn btn-danger btn-sm">eliminar</a>
+            {% endif %}
+
+        </td>
+    </tr>    
+
+    {% endfor %}
+</table>
+{% endblock tabla %}

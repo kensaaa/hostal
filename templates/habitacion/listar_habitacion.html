@@ -1,0 +1,42 @@
+{% extends 'baseTabla.html' %}
+
+{% block administracion %}
+    Habitaciones
+{% endblock administracion %}
+
+{% block button %}
+{% url 'habitacion:crear_habitacion' %}
+{% endblock button %}
+
+{% block tabla %}
+<table class="table table-striped table-hover table-responsive">
+    <tr>
+        <th>numero</th>
+        <th>valor</th>
+        <th>tipo habitacion</th>
+        <th>estado habitacion</th>
+        <th>opciones</th>
+    </tr>
+    {% for h in habitaciones  %}
+
+    <tr>
+        <td>{{ h.num_habitacion }}</td>
+        <td>{{ h.valor }}</td>
+        <td>{{ h.tipo }}</td>
+        <td>{{ h.estado }}</td>
+        <td>
+
+            {% if perms.app.change_habitacion %}
+            <a href="{% url 'habitacion:actualizar_habitacion' h.num_habitacion %}" class="btn btn-info btn-sm">modificar</a>
+            {% endif %}
+
+            {% if perms.app.delete_habitacion %}
+                <a href="#" onclick="" class="btn btn-danger btn-sm">eliminar</a>
+            {% endif %}
+
+        </td>
+    </tr>    
+
+    {% endfor %}
+</table>
+{% endblock tabla %}

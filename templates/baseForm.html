@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+    <div class="centrado-form card">
+        <div class="card-body">
+            <h2>
+                {% block titleForm %}
+                    
+                {% endblock titleForm %}
+            </h2>
+            <hr>
+            <form action="" method="post">
+                {% csrf_token %}
+                {% block contentForm %}
+                    
+                {% endblock contentForm %}
+            </form>
+        </div>
+    </div>
+
+{% endblock contenido %}

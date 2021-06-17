@@ -1,0 +1,22 @@
+{% extends "baseForm.html" %}
+
+{% block contentForm %}
+
+{% load crispy_forms_tags %}
+    
+{{ form | crispy }}
+
+<br></br>
+<div class="d-flex justify-content-end">
+    
+    <input type="reset" value="cancelar" class="btn btn-secondary" />
+    &nbsp;
+    <input type="submit" value="guardar" class="btn btn-primary" />
+
+</div>
+
+{% endblock contentForm %}
+
+{% block titleForm %}
+    Actualizar Orden de Compra
+{% endblock titleForm %}

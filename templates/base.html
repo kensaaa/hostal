@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>base</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/estilos.css' %}" title="" type="">
+    </head>
+    <body>
+        
+        <header class="header">
+
+
+            <div class="contenedor-img">
+                
+            </div>
+
+
+            <nav>
+                <ul class="menu">
+                    <li class="menu__item"><a href="#">menu 1</a></li>
+                    <li class="menu__item"><a href="#">menu 2</a></li>
+                    <li class="menu__item"><a href="#">menu 3</a></li>
+                    <li class="menu__item"><a href="#">menu 4</a></li>
+                </ul>
+            </nav>
+
+
+        </header>
+
+
+        <div class="contenedor-base">
+
+            {% block contenido %}
+
+            {% endblock %}
+
+        </div>
+
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        {% if messages %}
+             {% for m in messages %}
+                <script charset="utf-8">
+                    Swal.fire({
+                        'title':'felicidades',
+                        'text':'{{m}}',
+                        'icon':'success'
+                    })
+                </script>
+             {% endfor %}
+        {% endif %}
+
+
+        {% block js %}
+            
+        {% endblock js %}
+
+    </body>
+</html>

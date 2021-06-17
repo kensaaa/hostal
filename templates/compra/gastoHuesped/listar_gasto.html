@@ -1,0 +1,42 @@
+{% extends 'baseTabla.html' %}
+
+{% block administracion %}
+Gastos de Huespedes
+{% endblock administracion %}
+
+{% block button %}
+{% url 'compra:crear_gasto' %}
+{% endblock button %}
+
+{% block tabla %}
+<table class="table table-striped table-hover table-responsive">
+    <tr>
+        <th>identificador</th>
+        <th>fecha_gasto</th>
+        <th>huesped</th>
+        <th>Plato Consumido</th>
+        <th>opciones</th>
+    </tr>
+    {% for g in gastos  %}
+
+    <tr>
+        <td>{{ g.id_gasto }}</td>
+        <td>{{ g.fecha_gasto }}</td>
+        <td>{{ g.huesped }}</td>
+        <td>{{ g.plato }}</td>
+        <td>
+
+            {% if perms.app.change_habitacion %}
+            <a href="{% url 'compra:actualizar_gasto' g.id_gasto %}" class="btn btn-info btn-sm">modificar</a>
+            {% endif %}
+
+            {% if perms.app.delete_habitacion %}
+                <a href="#"  class="btn btn-danger btn-sm">eliminar</a>
+            {% endif %}
+
+        </td>
+    </tr>    
+
+    {% endfor %}
+</table>
+{% endblock tabla %}

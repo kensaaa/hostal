@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding:0;
+}
+
+header{
+    height: 3rem;
+    width:100%;
+    background-color:$color3;
+    display:flex;
+    
+    .contenedor-img{
+        width: 50%;
+    }
+
+    > nav {
+        width: 50%;
+
+        .menu{
+            list-style: none;
+            display:flex;
+            justify-content:flex-end;
+            margin-right: 1rem;
+
+            &__item{
+                height: 3rem;
+                padding: 0 1rem;
+
+               > a{
+                    text-decoration: none;
+                    line-height:3rem;
+                    color:black;
+                }
+
+                &:hover{
+                    background-color:black;
+                >    a{
+                        color: yellow;
+                    }
+                }
+            }
+
+        }
+    }
+
+}
+
+.contenedor-base{
+    background-color: $color1;
+    min-height: calc(100vh - 3rem);
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}

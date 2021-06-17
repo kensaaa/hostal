@@ -1,0 +1,42 @@
+{% extends 'baseTabla.html' %}
+
+{% block administracion %}
+Ordenes Pedidos
+{% endblock administracion %}
+
+{% block button %}
+{% url 'pedido:crear_pedido' %}
+{% endblock button %}
+
+{% block tabla %}
+<table class="table table-striped table-hover table-responsive">
+    <tr>
+        <th>num_pedido</th>
+        <th>estado</th>
+        <th>fecha_creacion</th>
+        <th>fecha_emision</th>
+        <th>opciones</th>
+    </tr>
+    {% for p in pedidos  %}
+
+    <tr>
+        <td>{{ p.num_pedido }}</td>
+        <td>{{ p.estado }}</td>
+        <td>{{ p.fecha_creacion }}</td>
+        <td>{{ p.fecha_emision }}</td>
+        <td>
+
+            {% if perms.app.change_habitacion %}
+            <a href="{% url 'pedido:actualizar_pedido' p.num_pedido %}" class="btn btn-info btn-sm">modificar</a>
+            {% endif %}
+
+            {% if perms.app.delete_habitacion %}
+                <a href="#"  class="btn btn-danger btn-sm">eliminar</a>
+            {% endif %}
+
+        </td>
+    </tr>    
+
+    {% endfor %}
+</table>
+{% endblock tabla %}

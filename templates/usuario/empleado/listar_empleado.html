@@ -1,0 +1,49 @@
+{% extends 'baseTabla.html' %}
+
+{% block administracion %}
+Empleados
+{% endblock administracion %}
+
+{% block button %}
+{% url 'usuario:crear_empleado' %}
+{% endblock button %}
+
+{% block tabla %}
+<table class="table table-striped table-hover table-responsive">
+    <tr>
+        <th>rut</th>
+        <th>nombres</th>
+        <th>paterno</th>
+        <th>materno</th>
+        <th>celular</th>
+        <th>correo</th>
+        <th>opciones</th>
+    </tr>
+    {% for e in empleados  %}
+
+    <tr>
+        <td>{{ e.rut }}</td>
+        <td>{{ e.nombres }}</td>
+        <td>{{ e.apaterno }}</td>
+        <td>{{ e.amaterno }}</td>
+        <td>{{ e.celular }}</td>
+        <td>{{ e.correo }}</td>
+        <td>
+
+            {% if perms.app.change_cliente %}
+            <a href="{% url 'usuario:actualizar_empleado' e.id_empleado %}" class="btn btn-info btn-sm">modificar</a>
+            {% endif %}
+
+            {% if perms.app.delete_cliente %}
+                <a href="#"  class="btn btn-danger btn-sm">eliminar</a>
+            {% endif %}
+
+        </td>
+    </tr>    
+
+    {% endfor %}
+</table>
+{% endblock tabla %}
+
+
+

@@ -1,0 +1,47 @@
+{% extends 'baseTabla.html' %}
+
+{% block administracion %}
+Proveedores
+{% endblock administracion %}
+
+{% block button %}
+{% url 'usuario:crear_proveedor' %}
+{% endblock button %}
+
+{% block tabla %}
+<table class="table table-striped table-hover table-responsive">
+    <tr>
+        <th>rut</th>
+        <th>nombre</th>
+        <th>celular</th>
+        <th>correo</th>
+        <th>rubro</th>
+        <th>opciones</th>
+    </tr>
+    {% for p in provedores  %}
+
+    <tr>
+        <td>{{ p.rut }}</td>
+        <td>{{ p.nombre }}</td>
+        <td>{{ p.celular }}</td>
+        <td>{{ p.correo }}</td>
+        <td>{{ p.rubro }}</td>
+        <td>
+
+            {% if perms.app.change_cliente %}
+            <a href="{% url 'usuario:actualizar_proveedor' p.id_proveedor %}" class="btn btn-info btn-sm">modificar</a>
+            {% endif %}
+
+            {% if perms.app.delete_cliente %}
+                <a href="#"  class="btn btn-danger btn-sm">eliminar</a>
+            {% endif %}
+
+        </td>
+    </tr>    
+
+    {% endfor %}
+</table>
+{% endblock tabla %}
+
+
+
