@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+ <div class="centrado-usuario">
+    <h1>Bienvenid@, {{ user.username }}</h1>
+
+    <div class="contenedor-administracion">
+        
+        <div class="menu">
+            <div class="titulo">
+                <h4>Menu</h4>
+            </div>
+             
+            <div class="opciones">
+                <li class="lista__item"><a href="{% url 'cliente:listar_curso' %}" >Ordenes en Curso</a></li>
+                <li class="lista__item"><a href="{% url 'cliente:listar_pago' %}" >Pago Pendiente</a></li>
+            </div>
+            
+        </div>
+
+        <div class="administracion">
+            <div class="head">
+                <div class="head__title">
+                    <h4>{% block title %} {% endblock title %}</h4> 
+                </div> 
+
+                <div class="head__button"> 
+                    {% block button %}
+                        
+                    {% endblock button %}
+                </div>
+
+            </div>
+
+            <div class="tabla">
+                
+                {% block tabla %}
+                    
+                {% endblock tabla %}
+                
+            </div>
+            
+        </div>
+
+     </div>
+     
+ </div>   
+    
+{% endblock contenido %}

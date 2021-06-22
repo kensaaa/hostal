@@ -1,5 +1,6 @@
 from django.db import models
 from apps.habitacion.models import Rubro
+from django.contrib.auth.models import User
 
 
 class Empleado(models.Model):
@@ -12,6 +13,7 @@ class Empleado(models.Model):
     correo = models.EmailField('Correo de Empleado',null=False,blank=False)
     direccion = models.CharField('Direccion de Empleado',max_length=200)
     celular = models.IntegerField('Celular de Empleado',null=False)
+    usuario = models.IntegerField('Usuario de Empleado',null=True)
 
 
     class Meta:
@@ -33,6 +35,7 @@ class Proveedor(models.Model):
     celular = models.IntegerField('Celular de Proveedor',null=False)
     correo = models.EmailField('Correo de Proveedor',null=False,blank=False)
     rubro = models.ForeignKey(Rubro,on_delete=models.CASCADE)
+    usuario = models.IntegerField('Usuario de Proveedor',null=True)
 
 
     class Meta:
@@ -55,6 +58,7 @@ class Cliente(models.Model):
     nombre = models.CharField('Nombre de Cliente',null=False,blank=False,max_length=100)
     celular = models.IntegerField('Celular de Cliente',null=False)
     correo = models.EmailField('Correo de Cliente',null=False,blank=False)
+    usuario = models.IntegerField('Usuario de Cliente',null=True)
 
 
     class Meta:

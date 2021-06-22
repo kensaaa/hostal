@@ -1,0 +1,39 @@
+{% extends 'baseCliente.html' %}
+
+
+{% block title %}
+    Ordenes Terminadas
+{% endblock title %}
+
+
+{% block button %}
+    
+{% endblock button %}
+
+
+{% block tabla %}
+<table class="table table-striped table-hover table-responsive">
+    <tr>
+        <th>numero</th>
+        <th>estado</th>
+        <th>fecha inicio</th>
+        <th>fecha termino</th>
+        <th>monto total</th>
+        <th>opciones</th>
+    </tr>
+    {% for o in ordenes  %}
+
+    <tr>
+        <td>{{ o.num_compra }}</td>
+        <td>{{ o.estado }}</td>
+        <td>{{ o.fecha_inicio }}</td>
+        <td>{{ o.fecha_termino }}</td>
+        <td>{{ o.monto_total }}</td>
+        <td>
+            <a href="#" class="btn btn-info btn-sm">Pagar</a>
+        </td>
+    </tr>    
+
+    {% endfor %}
+</table>
+{% endblock tabla %}

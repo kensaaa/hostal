@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.contrib.auth.decorators import login_required
 from .views import Home
+from apps.usuario.views import Login,logoutUsuario
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,5 +26,8 @@ urlpatterns = [
     path('comedor/',include(('apps.comedor.urls','comedor'))),
     path('orden-compra/',include(('apps.compra.urls','compra'))),
     path('orden-pedido/',include(('apps.pedido.urls','pedido'))),
+    path('cliente/',include(('apps.cliente.urls','cliente'))),
     path('',Home.as_view(),name='home'),
+    path('accounts/login/',Login.as_view(),name='login'),
+    path('logout/',login_required(logoutUsuario),name='logout')
 ]

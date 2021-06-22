@@ -1,8 +1,78 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.views.generic import ListView,UpdateView,DeleteView,CreateView
+from django.views.generic.edit import FormView
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import never_cache
+from django.views.decorators.csrf import csrf_protect
+from django.http import HttpResponseRedirect
+from django.contrib.auth import login,logout
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate,login
 from django.urls import reverse_lazy
 from .forms import *
 from .models import *
+
+
+class Login(FormView):
+    template_name = 'login.html'
+    form_class = FormularioLogin
+    success_url = reverse_lazy('home')
+    
+    @method_decorator(csrf_protect)
+    @method_decorator(never_cache)
+    def dispatch(self,request,*args,**kwargs):
+        if request.user.is_authenticated:
+            return HttpResponseRedirect(self.get_success_url())
+        else:
+            return super(Login,self).dispatch(request,*args,**kwargs)
+
+    def form_valid(self,form):
+        login(self.request,form.get_user())
+        return super(Login,self).form_valid(form)
+
+
+def logoutUsuario(request):
+    logout(request)
+    return HttpResponseRedirect('/accounts/login/')
+
+
+
+
+def RegristrarCLiente(request):
+
+    data = {
+            'form':FormularioCliente()
+            }
+    
+    if request.method == 'POST':
+        formulario = FormularioCliente(data=request.POST)
+
+        if formulario.is_valid():
+
+            username = formulario.cleaned_data['username']
+            password = formulario.cleaned_data['password1']
+            rut = formulario.cleaned_data['rut']
+            nombre = formulario.cleaned_data['nombre']
+            celular = formulario.cleaned_data['celular']
+            correo = formulario.cleaned_data['correo']
+
+            usuario = User.objects.create_user(username=username,password=password)
+            id_usuario = usuario.id
+            Cliente.objects.create(rut=rut,nombre=nombre,celular=celular,correo=correo,usuario=id_usuario)
+            login(request,usuario)
+
+            return redirect(to='home')
+
+        data['form'] = formulario
+
+
+
+    return render(request,'usuario/cliente/registrarCliente.html',data)
+
+
+
+
+
 
 
 

@@ -11,4 +11,5 @@ urlpatterns = [
         path('listar-empleado/',ListarEmpleado.as_view(),name='listar_empleado'),
         path('crear-empleado/',CrearEmpleado.as_view(),name='crear_empleado'),
         path('actualizar-empleado/<int:pk>/',ActualizarEmpleado.as_view(),name='actualizar_empleado'),
+        path('registrar-cliente/',RegristrarCLiente,name='registrar_cliente'),
 ]

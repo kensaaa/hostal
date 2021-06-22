@@ -13,7 +13,17 @@
             </div>
              
             <div class="opciones">
-
+                <li class="lista__item"><a href="{% url 'comedor:listar_plato' %}" >Comedor</a></li>
+                <li class="lista__item"><a href="{% url 'compra:listar_gasto' %}" >Gastos Huespedes</a></li>
+                <li class="lista__item"><a href="{% url 'compra:listar_huesped' %}" >Huespedes</a></li>
+                <li class="lista__item"><a href="{% url 'compra:listar_compra' %}" >Compras</a></li>
+                <li class="lista__item"><a href="{% url 'habitacion:listar_habitacion' %}" >Habitaciones</a></li>
+                <li class="lista__item"><a href="{% url 'pedido:listar_detalle' %}" >Detalle Pedido</a></li>
+                <li class="lista__item"><a href="{% url 'pedido:listar_pedido' %}" >Pedidos</a></li>
+                <li class="lista__item"><a href="{% url 'pedido:listar_producto' %}" >Productos</a></li>
+                <li class="lista__item"><a href="{% url 'usuario:listar_cliente' %}" >Clientes</a></li>
+                <li class="lista__item"><a href="{% url 'usuario:listar_empleado' %}" >Empleados</a></li>
+                <li class="lista__item"><a href="{% url 'usuario:listar_proveedor' %}" >Proveedor</a></li>
             </div>
             
         </div>

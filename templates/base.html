@@ -20,10 +20,18 @@
 
             <nav>
                 <ul class="menu">
-                    <li class="menu__item"><a href="#">menu 1</a></li>
-                    <li class="menu__item"><a href="#">menu 2</a></li>
-                    <li class="menu__item"><a href="#">menu 3</a></li>
-                    <li class="menu__item"><a href="#">menu 4</a></li>
+                    <li class="menu__item"><a href="{% url 'home' %}">home</a></li>
+                    <li class="menu__item"><a href="#">servicios</a></li>
+                    <li class="menu__item"><a href="#">galeria</a></li>
+                    {% if user.is_authenticated %}
+                        <li class="menu__item"><a href="{% url 'logout' %}">cerrar sesion</a></li>
+                        <li class="menu__item"><a href="#">@{{ user.username }}</a></li>
+                        <li class="menu__item"><a href="{% url 'cliente:listar_curso' %}">Mis Compras</a></li>
+                        <li class="menu__item"><a href="{% url 'compra:listar_compra' %}">administracion</a></li>
+                    {% else %}
+                        <li class="menu__item"><a href="{% url 'usuario:registrar_cliente' %}">registrarme</a></li>
+                        <li class="menu__item"><a href="{% url 'login' %}">login</a></li>
+                    {% endif %}
                 </ul>
             </nav>
 
