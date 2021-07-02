@@ -30,7 +30,8 @@
         <td>{{ o.fecha_termino }}</td>
         <td>{{ o.monto_total }}</td>
         <td>
-            <a href="#" class="btn btn-info btn-sm">enviar trabajadores</a>
+            <a href="#" class="btn btn-info btn-sm">Ver Listado</a>
+            <a href="{% url 'cliente:crear_trabajador' o.num_compra %}" class="btn btn-info btn-sm">agregar trabajador</a>
         </td>
     </tr>    
 

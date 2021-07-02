@@ -62,6 +62,7 @@ class Habitacion(models.Model):
     accesorio = models.TextField('Accesorios de la Habitacion',null=True,blank=True,max_length=255)
     estado = models.ForeignKey(Estado_Habitacion,on_delete=models.CASCADE)
     tipo = models.ForeignKey(Tipo_Habitacion,on_delete=models.CASCADE)
+    imagen =  models.ImageField(upload_to='habitaciones',null=True)
 
 
     class Meta:

@@ -18,6 +18,9 @@ from django.urls import path,include
 from django.contrib.auth.decorators import login_required
 from .views import Home
 from apps.usuario.views import Login,logoutUsuario
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,5 +32,14 @@ urlpatterns = [
     path('cliente/',include(('apps.cliente.urls','cliente'))),
     path('',Home.as_view(),name='home'),
     path('accounts/login/',Login.as_view(),name='login'),
-    path('logout/',login_required(logoutUsuario),name='logout')
+    path('logout/',login_required(logoutUsuario),name='logout'),
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
+
+
+
+

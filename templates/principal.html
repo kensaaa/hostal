@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+{% load static %}
+
+<div class="fondo-principal">
+
+
+    <div class="img-principal">
+    </div>
+
+    <div id="nosotros" class="nosotros">
+        <h2>Nosotros</h2>
+
+
+        <div class="contenido">
+
+
+            <div class="contenido__img">
+                <div class="img">
+                    
+                </div>
+            </div>
+
+            <div class="contenido__cuerpo">
+                <h1>Title</h1>
+                <p>
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                </p>
+                <p>
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                </p>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div id="habitaciones" class="habitacion">
+        <h2>Habitaciones</h2>
+
+
+        <div class="contenido">
+
+            <div class="targeta simple">
+                <div class="simple__estructura">
+                    <h2>Simple</h2>
+                    <div class="descripcion">
+                        <p>cama individual</p>
+                        <p>cama individual</p>
+                        <p>cama individual</p>
+                        <p>valor 2983293</p>
+                    </div>
+                </div>
+                <div class="simple__img">
+                    
+                </div>
+            </div>
+
+
+
+            <div class="targeta doble">
+                <div class="doble__estructura">
+                    <h2>Doble</h2>
+                    <div class="descripcion">
+                        <p>cama individual</p>
+                        <p>cama individual</p>
+                        <p>cama individual</p>
+                        <p>valor 2983293</p>
+                    </div>
+                </div>
+                <div class="doble__img">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="comedores" class="comedor">
+        <p>tenemos diferentes tipos de comedor!!!!!</p>
+
+        <div class="centrado">
+           <div class="tipo">
+               <div class="contenedor_img">
+                   <img src="{% static 'img/comedor/tipo1.png' %}" alt="">
+               </div>
+               <h4>General</h4>
+           </div>
+
+
+           <div class="tipo">
+               <div class="contenedor_img">
+                   <img src="{% static 'img/comedor/tipo2.png' %}" alt="">
+               </div>
+               <h4>Ejecutivo</h4>
+           </div>
+
+
+           <div class="tipo">
+               <div class="contenedor_img">
+                   <img src="{% static 'img/comedor/tipo3.png' %}" alt="">
+               </div>
+               <h4>Premium</h4>
+           </div>
+        </div>
+    </div>
+
+
+    <div id="contacto" class="contacto">
+
+
+        <h2>Contacto</h2>
+
+        <div class="redes">
+            
+            <div class="contenedor-contacto">
+                
+                <div class="contenedor-form">
+                    <form>
+                        
+                    </form>
+                </div>
+
+                <div class="informacion">
+                    <h2>title</h2>
+                    <p>
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    </p>
+                    <p>
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="contenedor-redes">
+                
+            </div>
+
+        </div>
+
+
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.267953650199!2d-70.58077518412978!3d-33.598351412505416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d7037854df81%3A0x893f58a1479b8f82!2sDuoc%20UC%3A%20Sede%20Puente%20Alto!5e0!3m2!1ses!2scl!4v1625250461818!5m2!1ses!2scl"  style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+
+
+</div>
+
+
+{% endblock contenido %}
