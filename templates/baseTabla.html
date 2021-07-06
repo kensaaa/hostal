@@ -2,56 +2,52 @@
 
 {% block contenido %}
 
- <div class="centrado-usuario">
-    <h1>Bienvenid@, {{ user.username }}  !!!! .Que hoy sea un gran dia para ti</h1>
+<div class="fondo-tabla">
 
-    <div class="contenedor-administracion">
-        
-        <div class="menu">
-            <div class="titulo">
-                <h4>Menu</h4>
-            </div>
-             
-            <div class="opciones">
-                <li class="lista__item"><a href="{% url 'comedor:listar_plato' %}" >Comedor</a></li>
-                <li class="lista__item"><a href="{% url 'compra:listar_gasto' %}" >Gastos Huespedes</a></li>
-                <li class="lista__item"><a href="{% url 'compra:listar_huesped' %}" >Huespedes</a></li>
-                <li class="lista__item"><a href="{% url 'compra:listar_compra' %}" >Compras</a></li>
-                <li class="lista__item"><a href="{% url 'habitacion:listar_habitacion' %}" >Habitaciones</a></li>
-                <li class="lista__item"><a href="{% url 'pedido:listar_detalle' %}" >Detalle Pedido</a></li>
-                <li class="lista__item"><a href="{% url 'pedido:listar_pedido' %}" >Pedidos</a></li>
-                <li class="lista__item"><a href="{% url 'pedido:listar_producto' %}" >Productos</a></li>
-                <li class="lista__item"><a href="{% url 'usuario:listar_cliente' %}" >Clientes</a></li>
-                <li class="lista__item"><a href="{% url 'usuario:listar_empleado' %}" >Empleados</a></li>
-                <li class="lista__item"><a href="{% url 'usuario:listar_proveedor' %}" >Proveedor</a></li>
-            </div>
-            
+    <div class="centrado">
+
+        <div class="cabeza">
+            <h2>Administracion 
+                {% block administracion %}
+                    
+                {% endblock administracion %}
+            </h2>
+            <a href="{% block button %}{% endblock %}" class="btn btn-primary">Agregar</a>
         </div>
 
-        <div class="administracion">
-            <div class="head">
-                <div class="head__title">
-                    <h4>Administracion de{% block administracion %} {% endblock administracion %}</h4> 
-                </div> 
 
-                <div class="head__button"> 
-                    <a href="{% block button %} {% endblock button %}" class="btn btn-light">Agregar</a>
-                </div>
+        <div class="cuerpo">
 
+            <div class="opciones">
+                <h5>MODULO</h5>
+
+                <ul class="lista">
+                    <li class="lista__item"><a href="{% url 'comedor:listar_plato' %}" >comedor</a></li>
+                    <li class="lista__item"><a href="{% url 'compra:listar_gasto' %}" >gasto huesped</a></li>
+                    <li class="lista__item"><a href="{% url 'compra:listar_huesped' %}" >huespedes</a></li>
+                    <li class="lista__item"><a href="{% url 'compra:listar_compra' %}" >compras</a></li>
+                    <li class="lista__item"><a href="{% url 'habitacion:listar_habitacion' %}" >habitaciones</a></li>
+                    <li class="lista__item"><a href="{% url 'pedido:listar_detalle' %}" >detalle pedido</a></li>
+                    <li class="lista__item"><a href="{% url 'pedido:listar_pedido' %}" >pedidos</a></li>
+                    <li class="lista__item"><a href="{% url 'pedido:listar_producto' %}" >productos</a></li>
+                    <li class="lista__item"><a href="{% url 'usuario:listar_cliente' %}" >clientes</a></li>
+                    <li class="lista__item"><a href="{% url 'usuario:listar_empleado' %}" >empleados</a></li>
+                    <li class="lista__item"><a href="{% url 'usuario:listar_proveedor' %}" >proveedor</a></li>
+                </ul>
             </div>
 
-            <div class="tabla">
-                
+            <div class="contenedor-tabla">
                 {% block tabla %}
                     
                 {% endblock tabla %}
-                
-            </div>
-            
-        </div>
 
-     </div>
-     
- </div>   
+            </div>
+
+        </div>
+        
+
+    </div>
+    
+</div>
     
 {% endblock contenido %}

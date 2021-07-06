@@ -1,6 +1,12 @@
-.centrado-form{
-    width:600px;
-    margin:1rem 0;
+.fondo-form{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+
+    .centrado-form{
+        width:600px;
+        margin:1rem 0;
+    }
 }
 
 

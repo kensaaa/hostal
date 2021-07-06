@@ -26,13 +26,8 @@ Gastos de Huespedes
         <td>{{ g.plato }}</td>
         <td>
 
-            {% if perms.app.change_habitacion %}
             <a href="{% url 'compra:actualizar_gasto' g.id_gasto %}" class="btn btn-info btn-sm">modificar</a>
-            {% endif %}
-
-            {% if perms.app.delete_habitacion %}
-                <a href="#"  class="btn btn-danger btn-sm">eliminar</a>
-            {% endif %}
+            <a href="#"  class="btn btn-danger btn-sm">eliminar</a>
 
         </td>
     </tr>    

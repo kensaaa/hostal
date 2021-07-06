@@ -30,7 +30,6 @@
                         <li class="menu__item"><a href="{% url 'cliente:listar_curso' %}">Mis Compras</a></li>
                         <li class="menu__item"><a href="{% url 'compra:listar_compra' %}">administracion</a></li>
                     {% else %}
-                        <li class="menu__item"><a href="{% url 'usuario:registrar_cliente' %}">registrarme</a></li>
                         <li class="menu__item"><a href="{% url 'login' %}">login</a></li>
                     {% endif %}
                 </ul>
